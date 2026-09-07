@@ -388,9 +388,14 @@ Colocated `*.test.ts(x)` files; `npm run test` gates every PR in CI. Manual resp
 
 ---
 
-## 21. Awaiting Decisions
+## 21. Decisions
 
-1. Stack approval (§2) — or a swap before Phase 1 (React ↔ Vue/Svelte is a fundamental change; Tailwind ↔ vanilla CSS is a smaller one).
-2. Pages enablement (§3) — can happen any time before Phase 10.
-3. Demo-content flavor: fictional-but-Bangladesh-inspired setting (BDT ৳, MFS-style payment, English + বাংলা) vs. fully country-neutral fictional. Default assumption: **Bangladesh-inspired fictional**.
-4. Reference website (if any) — to be used only under §0 rules.
+**Approved 2026-09-07:**
+
+1. ✅ **Stack approved as proposed** (§2): React 19 + Vite 7 + TypeScript + Tailwind CSS v4 + React Router 7 + TanStack Query v5 + React Hook Form/Zod + i18next.
+2. ✅ **Demo-content flavor: Bangladesh-inspired fictional** — BDT (৳) currency, fictional MFS-style payment method (clearly labeled demo, no real-format numbers), English + বাংলা, fictional Bangla/English student names and schools.
+
+**Still open (non-blocking):**
+
+3. GitHub Pages enablement (§3) — one-time manual step by the repo owner, needed only before Phase 10: *Settings → Pages → Build and deployment → Source: GitHub Actions*.
+4. Reference website (if any) — to be provided later; used only under §0 rules.
