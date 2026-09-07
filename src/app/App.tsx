@@ -34,6 +34,7 @@ export default function App() {
               <Route path="scholarship" element={<ScholarshipPage />} />
               <Route path="eligibility" element={<EligibilityPage />} />
               <Route path="syllabus" element={<SyllabusPage />} />
+              <Route path="syllabus/:gradeId" element={<SyllabusPage />} />
               <Route path="notices" element={<NoticesPage />} />
               <Route path="notices/:noticeId" element={<NoticeDetailPage />} />
               <Route path="register" element={<RegisterPage />} />

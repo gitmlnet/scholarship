@@ -7,13 +7,24 @@
     "retry": "আবার চেষ্টা করুন",
     "back": "ফিরে যান",
     "close": "বন্ধ করুন",
-    "learnMore": "আরও জানুন"
+    "learnMore": "আরও জানুন",
+    "search": "খুঁজুন",
+    "clear": "মুছুন",
+    "download": "ডাউনলোড"
   },
   "state": {
     "loading": "লোড হচ্ছে…",
     "error": "এই অংশটি লোড করতে সমস্যা হয়েছে।",
     "empty": "এখনো কিছু নেই।",
     "notFound": "আপনি যা খুঁজছেন সেটি পাওয়া যায়নি।"
+  },
+  "exam": {
+    "subjects": "বিষয় ও নম্বর",
+    "totalMarks": "মোট নম্বর",
+    "duration": "সময়",
+    "fee": "আবেদন ফি",
+    "instructions": "পরীক্ষার দিনের নির্দেশনা",
+    "minutes": "{{count}} মিনিট"
   },
   "noticeCategory": {
     "registration": "রেজিস্ট্রেশন",

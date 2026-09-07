@@ -11,14 +11,19 @@ export default function PublicLayout() {
   return (
     <div className="flex min-h-screen flex-col">
       <SkipLink />
-      <AnnouncementBar />
-      <Header />
+      {/* Site chrome disappears when printing (e.g. syllabus → PDF). */}
+      <div className="print:hidden">
+        <AnnouncementBar />
+        <Header />
+      </div>
       <main id="main-content" className="flex-1">
         <Suspense fallback={<PageLoading />}>
           <Outlet />
         </Suspense>
       </main>
-      <Footer />
+      <div className="print:hidden">
+        <Footer />
+      </div>
     </div>
   );
 }

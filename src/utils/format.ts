@@ -16,3 +16,8 @@ export function formatDate(isoDate: string, lang: Language): string {
     year: 'numeric',
   }).format(date);
 }
+
+/** Localized number (Bengali numerals in bn). */
+export function formatNumber(value: number, lang: Language): string {
+  return new Intl.NumberFormat(lang === 'bn' ? 'bn-BD' : 'en').format(value);
+}

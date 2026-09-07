@@ -2,23 +2,34 @@
   "siteName": "ScholarSphere",
   "actions": {
     "apply": "Apply for Scholarship",
-    "exploreProgram": "Explore Program",
+    "exploreProgram": "Explore the Program",
     "viewAll": "View all",
     "retry": "Try again",
-    "back": "Back",
+    "back": "Go back",
     "close": "Close",
-    "learnMore": "Learn more"
+    "learnMore": "Learn more",
+    "search": "Search",
+    "clear": "Clear",
+    "download": "Download"
   },
   "state": {
     "loading": "Loading…",
-    "error": "Something went wrong while loading this section.",
+    "error": "Something went wrong loading this section.",
     "empty": "Nothing here yet.",
     "notFound": "We couldn't find what you were looking for."
+  },
+  "exam": {
+    "subjects": "Subjects & marks",
+    "totalMarks": "Total marks",
+    "duration": "Duration",
+    "fee": "Application fee",
+    "instructions": "Exam-day instructions",
+    "minutes": "{{count}} min"
   },
   "noticeCategory": {
     "registration": "Registration",
     "exam": "Exam",
-    "result": "Results",
+    "result": "Result",
     "general": "General"
   },
   "language": {

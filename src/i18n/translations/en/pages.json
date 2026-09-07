@@ -5,19 +5,103 @@
   },
   "scholarship": {
     "title": "The Scholarship",
-    "description": "Purpose, benefits, exam structure, and important dates of the program."
+    "description": "Purpose, benefits, exam structure, and important dates of the program.",
+    "purpose": {
+      "heading": "Why this program exists",
+      "body": "Too much potential goes unnoticed simply because opportunity is unevenly distributed. The ScholarSphere Excellence Scholarship looks for that potential early — in Grades 4 through 10 — and gives it a stage, a fair examination, and real recognition. One application and one rigorous exam are all it takes to be seen."
+    },
+    "benefits": {
+      "heading": "What scholars receive",
+      "items": [
+        {
+          "title": "Recognition",
+          "body": "A published merit list and a certificate that honors achievement in front of family, school, and community."
+        },
+        {
+          "title": "Financial support",
+          "body": "One-time awards from ৳5,000 to ৳20,000 (fictional amounts) to ease the cost of studies."
+        },
+        {
+          "title": "Mentorship & resources",
+          "body": "Selected scholars join study circles and receive guidance materials through the program year."
+        },
+        {
+          "title": "A fair chance",
+          "body": "Selection depends only on the entrance examination — not connections, backgrounds, or ability to pay beyond the modest fee."
+        }
+      ]
+    },
+    "exam": {
+      "heading": "Exam structure at a glance",
+      "body": "Every grade sits a written examination designed for its level. The structure below is the 2026 configuration; full details live on the Eligibility page."
+    },
+    "dates": {
+      "heading": "Important dates",
+      "body": "Key milestones of the 2026 cycle."
+    },
+    "process": {
+      "heading": "How applying works",
+      "steps": [
+        {
+          "title": "Apply online",
+          "body": "Fill in the seven-step application wizard — student, guardian, and academic details."
+        },
+        {
+          "title": "Pay the fee",
+          "body": "Send the grade-based fee through DemoPay and enter the transaction ID (simulated payment)."
+        },
+        {
+          "title": "Sit the exam",
+          "body": "Download your admit card in December and take the entrance examination on exam day."
+        },
+        {
+          "title": "Results & awards",
+          "body": "Merit lists are published in January; awards follow at a ceremony in February."
+        }
+      ]
+    },
+    "payment": {
+      "heading": "Paying the application fee",
+      "body": "Payment runs through DemoPay, a fictional mobile financial service included purely for the learning experience. No real money moves anywhere — verification is simulated."
+    },
+    "cta": {
+      "title": "Ready to begin?",
+      "body": "The application takes about 20 minutes. Your draft is saved as you go, so you can finish it later."
+    }
   },
   "eligibility": {
     "title": "Eligibility",
-    "description": "Who can apply for Grades 4–10, subject requirements, and exam rules."
+    "description": "Who can apply for Grades 4–10, subject requirements, and exam rules.",
+    "general": {
+      "heading": "Before you check your grade",
+      "items": [
+        "The student must be enrolled in the grade applied for, in the 2026 academic year.",
+        "The institution must be recognized by the relevant education board or authority.",
+        "Grades 6 and above require the minimum annual-exam GPA listed for that grade.",
+        "One application per student per cycle — duplicate submissions are rejected."
+      ]
+    },
+    "gradeCard": {
+      "heading": "Grade-wise requirements",
+      "syllabusLink": "View the syllabus",
+      "applyLink": "Apply for this grade"
+    },
+    "feeNote": "The application fee is ৳100–200 depending on grade, paid through the fictional DemoPay service during registration."
   },
   "syllabus": {
     "title": "Syllabus",
-    "description": "The grade-wise syllabus library with subjects, marks, and instructions."
+    "description": "The grade-wise syllabus library with subjects, marks, and instructions.",
+    "gradePicker": "Choose a grade",
+    "topics": "Topics",
+    "download": "Download syllabus sheet",
+    "printHint": "The print dialog lets you save the sheet as PDF — nothing is downloaded from a server.",
+    "notFound": "No syllabus exists for this grade."
   },
   "notices": {
     "title": "Notices",
-    "description": "Announcements, registration dates, exam notices, and results."
+    "description": "Announcements, registration dates, exam notices, and results.",
+    "filterLabel": "Filter by category",
+    "all": "All notices"
   },
   "register": {
     "title": "Registration",
@@ -29,23 +113,139 @@
   },
   "results": {
     "title": "Results",
-    "description": "Merit lists and scholarship awards by year and grade."
+    "description": "Merit lists and scholarship awards by year and grade.",
+    "year": "Year",
+    "grade": "Grade",
+    "searchLabel": "Search the merit list",
+    "searchPlaceholder": "Student or school name",
+    "table": {
+      "position": "Position",
+      "student": "Student",
+      "school": "School",
+      "score": "Score",
+      "award": "Award",
+      "publishedOn": "Published on"
+    },
+    "emptySearch": "No students or schools match your search.",
+    "notFound": "No results have been published for this year and grade yet.",
+    "demoNote": "Merit lists show fictional students and schools for the demonstration."
   },
   "faq": {
     "title": "Frequently Asked Questions",
-    "description": "Answers to the questions applicants ask most."
+    "description": "Answers to the questions applicants ask most.",
+    "categories": {
+      "all": "All questions",
+      "program": "The program",
+      "eligibility": "Eligibility",
+      "payment": "Payment",
+      "tracking": "Tracking",
+      "about": "About this demo"
+    }
   },
   "contact": {
     "title": "Contact",
-    "description": "Reach the (fictional) program office."
+    "description": "Reach the (fictional) program office.",
+    "info": {
+      "heading": "Program office",
+      "emailLabel": "Email",
+      "addressLabel": "Address",
+      "hoursLabel": "Office hours",
+      "hours": "Sunday–Thursday, 9:00 – 17:00 (fictional)"
+    },
+    "form": {
+      "heading": "Send us a message",
+      "name": "Full name",
+      "email": "Email address",
+      "subject": "Subject",
+      "message": "Message",
+      "messageHint": "Between 10 and 2,000 characters.",
+      "submit": "Send message",
+      "submitting": "Sending…",
+      "successTitle": "Message received",
+      "successBody": "Thank you — the (fictional) program office will reply to your email address soon.",
+      "demoNote": "This form stores messages in a demo inbox inside your browser. Nothing is actually sent, and no real staff will respond.",
+      "sendAnother": "Send another message"
+    }
   },
   "privacy": {
     "title": "Privacy Policy",
-    "description": "How this demo handles data — locally, in your browser."
+    "description": "How this demo handles data — locally, in your browser.",
+    "intro": "This is a learning project, not a real scholarship program. This policy explains honestly what happens to anything you type here.",
+    "sections": [
+      {
+        "heading": "No real data collection",
+        "paragraphs": [
+          "ScholarSphere has no backend server. Every page you see runs in your browser, and every request is answered by a simulated API in memory.",
+          "We do not collect, transmit, or sell personal information. There are no analytics, no tracking pixels, and no third-party services receiving your data."
+        ]
+      },
+      {
+        "heading": "What is stored, and where",
+        "paragraphs": [
+          "Application drafts, submitted (demo) applications, and contact-form messages are stored in your browser's localStorage under a namespaced key.",
+          "This storage is confined to your browser and your device. Clearing your browser's site data removes it permanently."
+        ]
+      },
+      {
+        "heading": "Fictional content",
+        "paragraphs": [
+          "Names, schools, statistics, dates, and payment providers shown across the site are fictional and exist only to make the demonstration realistic.",
+          "Any resemblance to real people or institutions is coincidental."
+        ]
+      },
+      {
+        "heading": "Your control",
+        "paragraphs": [
+          "Because everything is local, you hold every control: clear site data to erase all demo records, or use the admin dashboard's reset action to restore the pristine seed state."
+        ]
+      },
+      {
+        "heading": "Questions",
+        "paragraphs": [
+          "For anything about this demo project, use the contact page — messages stay in your browser's demo inbox."
+        ]
+      }
+    ]
   },
   "terms": {
     "title": "Terms & Conditions",
-    "description": "The (fictional) rules of the program."
+    "description": "The (fictional) rules of the program.",
+    "intro": "These terms govern the fictional ScholarSphere Excellence Scholarship demonstration. By using this site you acknowledge its demo nature.",
+    "sections": [
+      {
+        "heading": "A demonstration, not an offer",
+        "paragraphs": [
+          "No real scholarship, award, or payment is offered or implied. The program, its office, its staff, and its payment service (DemoPay) are fictional.",
+          "Nothing you submit here creates a legal relationship or an entitlement."
+        ]
+      },
+      {
+        "heading": "Eligibility rules",
+        "paragraphs": [
+          "Within the demo, eligibility follows the published grade-wise requirements on the Eligibility page: enrollment in the applied grade, a recognized institution, and the minimum annual-exam GPA where applicable.",
+          "One application per student per cycle is accepted."
+        ]
+      },
+      {
+        "heading": "Acceptable use",
+        "paragraphs": [
+          "Please do not submit abusive, misleading, or automated bulk content through the demo forms.",
+          "Demo data may be reset or cleared at any time without notice — do not store anything you care about in this application."
+        ]
+      },
+      {
+        "heading": "Content and intellectual property",
+        "paragraphs": [
+          "The site's design, code, and written content are part of the learning project. Fictional names and stories are invented for the demonstration and are not real endorsements."
+        ]
+      },
+      {
+        "heading": "Changes",
+        "paragraphs": [
+          "These terms may change as the project evolves. The current version is always the one published on this page."
+        ]
+      }
+    ]
   },
   "admin": {
     "title": "Admin (demo)",

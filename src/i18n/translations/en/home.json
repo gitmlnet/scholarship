@@ -7,12 +7,86 @@
     "title": "Your Potential Deserves an Opportunity.",
     "subtitle": "One application and one rigorous examination open a pathway to recognition, support, and opportunity for students in Grades 4–10."
   },
+  "overview": {
+    "heading": "A stage for every deserving student",
+    "body": "The ScholarSphere Excellence Scholarship searches out meritorious students across Bangladesh — from busy district towns to quiet villages — and puts their achievement in front of everyone. The program is fictional, but its ambition is honest: make opportunity about merit, not luck."
+  },
+  "benefits": {
+    "heading": "Why students apply",
+    "items": [
+      {
+        "title": "Merit-only selection",
+        "body": "One transparent entrance examination. No recommendations, no quotas, no hidden doors."
+      },
+      {
+        "title": "Real recognition",
+        "body": "Published merit lists, certificates, and an awards ceremony for families and schools."
+      },
+      {
+        "title": "Support that continues",
+        "body": "Awards of ৳5,000–৳20,000 plus study circles and mentoring through the program year."
+      }
+    ]
+  },
+  "howItWorks": {
+    "heading": "How it works",
+    "steps": [
+      { "title": "Apply online", "body": "A guided seven-step application with a saved draft." },
+      { "title": "Pay & verify", "body": "The modest fee goes through (fictional) DemoPay." },
+      { "title": "Sit the exam", "body": "One written examination, set for your grade." },
+      { "title": "Earn the stage", "body": "Merit lists publish in January; awards follow." }
+    ]
+  },
+  "syllabusTeaser": {
+    "heading": "Know exactly what to study",
+    "body": "Every grade has a published syllabus — subjects, marks, and topic lists — so preparation starts on day one.",
+    "cta": "Browse the syllabus"
+  },
+  "eligibilityTeaser": {
+    "heading": "Are you eligible?",
+    "body": "Students in Grades 4–10 at recognized institutions can apply. Check your grade's requirements before starting.",
+    "cta": "Check eligibility"
+  },
   "stats": {
     "heading": "The program at a glance"
+  },
+  "stories": {
+    "heading": "From last year's scholars",
+    "items": [
+      {
+        "quote": "The exam was the first time my result mattered outside my school. When my name appeared on the merit list, my whole family celebrated.",
+        "name": "Ayesha Siddiqua",
+        "detail": "Gold Award 2025, Grade 5 · Future Scholars Academy (fictional)"
+      },
+      {
+        "quote": "I prepared from the published syllabus for three months. Nothing in the exam surprised me — that fairness is what I remember most.",
+        "name": "Mehrab Hossain",
+        "detail": "Gold Award 2025, Grade 8 · Rajshahi Mission School (fictional)"
+      },
+      {
+        "quote": "The award money bought my books for the year, but the certificate is what hangs on our wall.",
+        "name": "Tahmina Begum",
+        "detail": "Gold Award 2025, Grade 10 · Dhanmondi Ideal High School (fictional)"
+      }
+    ]
+  },
+  "leadership": {
+    "heading": "A message from the program director",
+    "quote": "Every year I watch students walk into the examination hall as strangers and walk out as scholars. Our job is simply to keep that door open — and to keep it open for everyone.",
+    "name": "Dr. Farhana Rahman",
+    "role": "Program Director, ScholarSphere (fictional)"
   },
   "notices": {
     "heading": "Latest Notices",
     "viewAll": "View all notices",
     "empty": "No notices published yet."
+  },
+  "faqTeaser": {
+    "heading": "Questions applicants ask",
+    "viewAll": "View all questions"
+  },
+  "cta": {
+    "title": "Take the first step",
+    "body": "Applications for the 2026 cycle are open. The wizard saves your draft, so you can start now and finish whenever you're ready."
   }
 }
