@@ -5,6 +5,7 @@ import { resetMockApi } from '@/mock-api';
 
 beforeEach(() => {
   window.localStorage.clear();
+  window.sessionStorage.clear(); // demo-auth sessions + client token
   resetMockApi();
 });
 

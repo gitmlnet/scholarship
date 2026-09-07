@@ -1,10 +1,13 @@
 import { type ApiClient, type ApiRequestOptions, type HttpMethod } from '../types';
+import { getSessionToken } from '../tokenStore';
 import { MockServer } from '@/mock-api/server';
 
 export interface MockApiClientOptions {
   server: MockServer;
   /** Simulated network latency. `null` disables it (tests). */
   latency?: { min: number; max: number } | null;
+  /** Supplies the session token for authenticated requests. */
+  getToken?: () => string | null;
 }
 
 function sleep(ms: number, signal?: AbortSignal): Promise<void> {
@@ -58,7 +61,10 @@ export class MockApiClient implements ApiClient {
       query.set(key, String(value));
     }
 
-    const result = this.options.server.handle(method, path, query, options.body, null);
+    const token = this.options.getToken ? this.options.getToken() : getSessionToken();
+    // Await before cloning: async handlers (e.g. credential hashing) return a
+    // promise that must resolve before the JSON deep-clone.
+    const result = await this.options.server.handle(method, path, query, options.body, token);
     return clone(result) as T;
   }
 }

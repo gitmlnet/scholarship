@@ -18,6 +18,27 @@ export type ApplicationStatus =
   | 'approved'
   | 'rejected';
 
+/**
+ * The legal status transitions, enforced server-side by the API layer
+ * (docs/ARCHITECTURE.md §6). Terminal states have no outgoing edges.
+ * `rejected` is reachable from `needs_correction` so an admin reviewing a
+ * correction can still reject the application outright.
+ */
+export const APPLICATION_TRANSITIONS: Record<ApplicationStatus, readonly ApplicationStatus[]> = {
+  draft: ['submitted'],
+  submitted: ['payment_pending'],
+  payment_pending: ['under_review', 'rejected'],
+  under_review: ['needs_correction', 'approved', 'rejected'],
+  needs_correction: ['under_review', 'rejected'],
+  approved: [],
+  rejected: [],
+};
+
+/** Whether `from → to` is a legal application-status transition. */
+export function canTransition(from: ApplicationStatus, to: ApplicationStatus): boolean {
+  return APPLICATION_TRANSITIONS[from].includes(to);
+}
+
 export type PaymentStatus = 'pending' | 'verified' | 'needs_review' | 'rejected';
 
 export type Gender = 'male' | 'female' | 'other' | 'prefer_not_to_say';

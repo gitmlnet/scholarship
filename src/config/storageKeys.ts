@@ -8,3 +8,11 @@ export const DB_NAMESPACE = 'scholarsphere.db.v1';
 
 /** Autosaved registration wizard draft (values + step). */
 export const REGISTER_DRAFT_KEY = `${DB_NAMESPACE}.registerDraft`;
+
+/**
+ * Demo-auth session keys. sessionStorage (not localStorage) on purpose:
+ * sessions die with the tab — a safer default for a demo, and "reset demo
+ * data" never resurrects stale credentials.
+ */
+export const SESSIONS_TABLE_KEY = 'scholarsphere.session.v1.sessions';
+export const SESSION_TOKEN_KEY = 'scholarsphere.session.v1.token';

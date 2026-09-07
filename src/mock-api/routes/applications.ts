@@ -1,4 +1,4 @@
-import type { Application } from '@/types';
+import type { Application, ApplicationStatusView } from '@/types';
 import {
   buildApplicationSchemas,
   defaultValidationMessages,
@@ -6,6 +6,9 @@ import {
 import { ApiError } from '@/lib/api/types';
 import type { Db } from '../db/db';
 import { saveUserTable } from '../db/persistence';
+import { writeAudit } from '../audit';
+import { resolveSession } from '../auth';
+import { schedulePaymentSettlement, settleDuePayments } from '../payments';
 import type { MockRoute } from '../server';
 
 const schemas = buildApplicationSchemas(defaultValidationMessages);
@@ -21,17 +24,17 @@ function generateId(db: Db, shortCode: string): string {
 }
 
 /**
- * POST /applications — the registration wizard's single submit.
- * Phase 4 scope: validate, prevent duplicate payment references, create the
- * record at `payment_pending`. (Verification simulation, the full status
- * machine, and audit logging are Phase 5 — see ARCHITECTURE.md §18.)
+ * POST /applications — the registration wizard's single submit. Validates,
+ * prevents duplicate payment references, creates the record at
+ * `payment_pending`, writes an audit entry, attributes ownership when the
+ * submitter is signed in, and schedules the simulated payment verification.
  */
 export function createApplicationRoutes(getDb: () => Db): MockRoute[] {
   return [
     {
       method: 'POST',
       pattern: '/applications',
-      handler: ({ body }): { id: string } => {
+      handler: ({ body, authToken }): { id: string } => {
         const parsed = schemas.input.safeParse(body);
         if (!parsed.success) {
           const details: Record<string, string[]> = {};
@@ -44,6 +47,10 @@ export function createApplicationRoutes(getDb: () => Db): MockRoute[] {
         const input = parsed.data;
 
         const db = getDb();
+        const submitter = resolveSession(db, authToken);
+        if (submitter && submitter.role !== 'applicant') {
+          throw new ApiError(403, 'FORBIDDEN', 'Admins cannot submit applications');
+        }
 
         // Duplicate payment reference within this cycle → friendly 409.
         const duplicate = db.applications.find(
@@ -92,14 +99,48 @@ export function createApplicationRoutes(getDb: () => Db): MockRoute[] {
             { status: 'submitted', at: now, actor: 'applicant' },
             { status: 'payment_pending', at: now, actor: 'system' },
           ],
-          ownerUserId: null,
+          ownerUserId: submitter?.id ?? null,
           createdAt: now,
           updatedAt: now,
         };
 
         db.applications.push(application);
         saveUserTable('applications', db.applications);
+        writeAudit(db, {
+          actor: submitter ? `applicant:${submitter.email}` : 'anonymous',
+          action: 'application.created',
+          recordType: 'application',
+          recordId: application.id,
+          result: 'success',
+          details: { gradeId: application.academic.gradeId },
+        });
+        schedulePaymentSettlement(getDb);
         return { id: application.id };
+      },
+    },
+    {
+      method: 'GET',
+      pattern: '/applications/:id/status',
+      handler: ({ params }): ApplicationStatusView => {
+        const db = getDb();
+        settleDuePayments(db);
+
+        const application = db.applications.find((entry) => entry.id === params.id);
+        if (!application) {
+          // Same response for every unknown id — nothing to enumerate.
+          throw new ApiError(404, 'NOT_FOUND', 'Application not found');
+        }
+
+        const submittedAt =
+          application.statusHistory.find((entry) => entry.status === 'submitted')?.at ?? null;
+        return {
+          id: application.id,
+          status: application.status,
+          paymentStatus: application.payment.status,
+          submittedAt,
+          updatedAt: application.updatedAt,
+          correctionNote: application.correctionNote ?? null,
+        };
       },
     },
   ];

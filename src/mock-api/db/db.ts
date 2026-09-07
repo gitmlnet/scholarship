@@ -10,7 +10,9 @@ import type {
   ResultYearIndexEntry,
   Statistic,
   Syllabus,
+  UserRecord,
 } from '@/types';
+import { seedApplications } from '@/data/seed/demoApplications';
 import { seedFaqs } from '@/data/seed/faqs';
 import { seedGrades } from '@/data/seed/grades';
 import { seedNotices } from '@/data/seed/notices';
@@ -18,6 +20,7 @@ import { seedProgramSettings } from '@/data/seed/programSettings';
 import { seedResults, seedResultIndex } from '@/data/seed/results';
 import { seedStats } from '@/data/seed/stats';
 import { seedSyllabus } from '@/data/seed/syllabus';
+import { seedUsers } from '@/data/seed/users';
 import { clearUserTables, loadUserTable } from './persistence';
 
 /**
@@ -34,6 +37,8 @@ export interface Db {
   syllabus: Syllabus[];
   results: ResultYear[];
   resultIndex: ResultYearIndexEntry[];
+  /** Demo accounts — seed-only (with salted credential records). */
+  users: UserRecord[];
   applications: Application[];
   auditLog: AuditEntry[];
   contactMessages: ContactMessage[];
@@ -79,7 +84,13 @@ export function createDb(): Db {
     syllabus: [...seedSyllabus],
     results: [...seedResults],
     resultIndex: [...seedResultIndex],
-    applications: (loadUserTable('applications', isApplication) as Application[]) ?? [],
+    users: [...seedUsers],
+    // Pristine browsers start from the seeded demo applications; once any
+    // application is submitted the whole table persists to localStorage
+    // (§8: user data merges over seed at boot). Reset returns to seed.
+    applications:
+      (loadUserTable('applications', isApplication) as Application[]) ??
+      seedApplications.map((application) => ({ ...application })),
     auditLog: (loadUserTable('auditLog', isAuditEntry) as AuditEntry[]) ?? [],
     contactMessages: (loadUserTable('contactMessages', isContactMessage) as ContactMessage[]) ?? [],
   };

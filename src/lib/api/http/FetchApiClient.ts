@@ -5,6 +5,7 @@ import {
   type ApiRequestOptions,
   type HttpMethod,
 } from '../types';
+import { getSessionToken } from '../tokenStore';
 import type { ApiErrorCode } from '@/types';
 
 interface ErrorPayload {
@@ -24,10 +25,13 @@ export class FetchApiClient implements ApiClient {
 
   async request<T>(method: HttpMethod, path: string, options: ApiRequestOptions = {}): Promise<T> {
     const url = `${this.baseUrl}${path}${buildQueryString(options.params)}`;
+    const token = getSessionToken();
+    const headers: Record<string, string> = { 'Content-Type': 'application/json' };
+    if (token) headers.Authorization = `Bearer ${token}`;
 
     const response = await fetch(url, {
       method,
-      headers: { 'Content-Type': 'application/json' },
+      headers,
       body: options.body === undefined ? undefined : JSON.stringify(options.body),
       signal: options.signal,
     });

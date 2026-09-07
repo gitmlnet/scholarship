@@ -62,15 +62,27 @@ export class MockServer {
       });
 
       try {
-        return route.handler({ params, query, body, authToken });
+        const result = route.handler({ params, query, body, authToken });
+        // Async handlers (e.g. credential hashing) resolve here; their
+        // rejections get the same ApiError shaping as sync throws.
+        if (result instanceof Promise) {
+          return result.catch((error: unknown) => {
+            throw toApiError(method, path, error);
+          });
+        }
+        return result;
       } catch (error) {
-        if (error instanceof ApiError) throw error;
-        // Unexpected handler bugs become 500s, like a real server.
-        console.error(`[mock-api] handler error for ${method} ${path}:`, error);
-        throw new ApiError(500, 'INTERNAL', 'Unexpected server error');
+        throw toApiError(method, path, error);
       }
     }
 
     throw new ApiError(404, 'NOT_FOUND', `No route for ${method} ${path}`);
   }
+}
+
+/** Unexpected handler bugs become 500s, like a real server. */
+function toApiError(method: HttpMethod, path: string, error: unknown): ApiError {
+  if (error instanceof ApiError) return error;
+  console.error(`[mock-api] handler error for ${method} ${path}:`, error);
+  return new ApiError(500, 'INTERNAL', 'Unexpected server error');
 }
