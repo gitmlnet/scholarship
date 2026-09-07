@@ -6,6 +6,7 @@ export * from './faq';
 export * from './grades';
 export * from './syllabus';
 export * from './results';
+export * from './contact';
 export * from './application';
 export * from './user';
 export * from './audit';

@@ -17,3 +17,9 @@ export interface ResultYear {
   publishedAt: IsoDate;
   meritList: MeritListEntry[];
 }
+
+/** One row of the Results page index: which grades exist per year. */
+export interface ResultYearIndexEntry {
+  year: number;
+  gradeIds: GradeId[];
+}
