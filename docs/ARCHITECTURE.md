@@ -54,17 +54,23 @@ Inspected 2026-09-07. **No existing application code** — the repository contai
 | Concern | Choice | Rationale |
 |---|---|---|
 | UI library | **React 19** | Largest ecosystem, best learning value (component architecture, hooks, patterns transfer to any framework), best documentation |
-| Language | **TypeScript 5 (strict)** | Domain types *are* the schema; the type layer is the contract between UI, services, mock API, and a future real backend |
-| Build tool | **Vite 7** | Fast, stable, first-class GitHub Pages static builds, zero-config TS/JSX/HMR |
-| Routing | **React Router 7 (library mode)** | Declarative nested routes + layouts; teaches real routing concepts; works on static hosting |
+| Language | **TypeScript (strict)** | Domain types *are* the schema; the type layer is the contract between UI, services, mock API, and a future real backend |
+| Build tool | **Vite** | Fast, stable, first-class GitHub Pages static builds, zero-config TS/JSX/HMR |
+| Routing | **React Router (library mode)** | Declarative nested routes + layouts; teaches real routing concepts; works on static hosting |
 | Styling | **Tailwind CSS v4** (CSS-first `@theme` tokens) | Design tokens as CSS custom properties + utility speed; industry standard for premium SaaS UIs; no runtime cost. **No component library** (no MUI/Bootstrap) — we build an original design system, avoiding template appearance and bundle bloat |
 | Server state | **TanStack Query v5** | The realistic way to manage API data: loading/error/success states, caching, invalidation. Keeps us from hand-rolling caching against a service layer |
-| Forms | **React Hook Form + Zod** | Industry standard for multi-step wizards; schema-first validation, accessible error binding; Zod schemas double as shared contracts for a future real API |
+| Forms | **React Hook Form + Zod** (from Phase 4) | Industry standard for multi-step wizards; schema-first validation, accessible error binding; Zod schemas double as shared contracts for a future real API |
 | i18n | **i18next + react-i18next** | Standard, supports namespaces + lazy loading + runtime language switching (English / বাংলা) |
-| Fonts | **@fontsource (self-hosted)** incl. a Bengali-capable family (e.g. Noto Sans Bengali) | No external font CDN at runtime; `unicode-range`-based lazy loading so Bengali glyphs only load when needed |
+| Fonts | **@fontsource (self-hosted)** incl. a Bengali-capable family (e.g. Noto Sans Bengali, from Phase 2) | No external font CDN at runtime; `unicode-range`-based lazy loading so Bengali glyphs only load when needed |
 | Unit/component tests | **Vitest + Testing Library (jsdom)** | Fast, Vite-native; covers the entire required test matrix (§15) |
 | E2E | **Playwright (optional, CI-only)** | No local browser in sandbox; added in Phase 9/10 if desired |
-| Lint/format | **ESLint 9 (flat config) + typescript-eslint + Prettier** | CI gates: lint, typecheck, test, build |
+| Lint/format | **ESLint + typescript-eslint + Prettier** | CI gates: lint, typecheck, test, build; ESLint also enforces the architecture boundaries (§4) |
+
+**Installed versions (Phase 1, 2026-09-07):** React 19.2 · TypeScript 6.0 · Vite 8.2 ·
+React Router 8.3 · Tailwind 4.3 · TanStack Query 5.102 · i18next 26.4 / react-i18next 17.0 ·
+Vitest 5.0 · ESLint 10.10. The toolchain resolved to newer majors than this doc originally
+assumed (Vite 7 / RR7 / TS5); the APIs they expose are compatible with the planned architecture,
+verified before implementation.
 
 **Deliberately rejected (overengineering for this project):** Next.js (no SSR need; static export adds framework weight without benefit here), a Node/Express server or MSW service worker (a hand-rolled in-browser API layer is simpler, testable in jsdom, and equally swappable), Redux (unnecessary with TanStack Query + RHF), a real database (localStorage suffices for a per-device demo), Storybook (an internal `/style-guide` route serves the same purpose with zero dependencies).
 
@@ -351,7 +357,7 @@ Colocated `*.test.ts(x)` files; `npm run test` gates every PR in CI. Manual resp
 | Phase | Deliverable | Gate |
 |---|---|---|
 | 0 Discovery | This document | ✅ done |
-| 1 Foundation | Vite+React+TS scaffold, Tailwind tokens, router, i18n skeleton, ESLint/Prettier, CI workflows, README, `.env.example`, folder skeleton, service/mocking spike | Build + tests green; live preview works; push/PR flow verified |
+| 1 Foundation | Vite+React+TS scaffold, Tailwind tokens, router, i18n, ESLint/Prettier, CI workflows, README, `.env.example`, folder skeleton, service/mocking spike | ✅ done 2026-09-07 — lint/typecheck/36 tests/build green; live preview works; layered slice (settings/notices/stats) running end-to-end; ESLint architecture boundaries active |
 | 2 Design system | Tokens tuned (AA contrast), all `ui/` primitives, `/style-guide` route | Style guide renders; keyboard pass |
 | 3 Public site | Home + Scholarship + Eligibility + Syllabus + Notices + Results + FAQ + Contact + legal pages | Responsive 320–1920; full en/bn; per-page meta |
 | 4 Registration | 7-step wizard, validation, drafts, success screen | Wizard tests green |
