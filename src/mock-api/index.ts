@@ -1,3 +1,4 @@
+import { createApplicationRoutes } from './routes/applications';
 import { createContentRoutes } from './routes/content';
 import { MockServer } from './server';
 import { createDb, resetDb, type Db } from './db/db';
@@ -9,7 +10,10 @@ import { createDb, resetDb, type Db } from './db/db';
  */
 let db: Db = createDb();
 
-const server = new MockServer([...createContentRoutes(() => db)]);
+const server = new MockServer([
+  ...createContentRoutes(() => db),
+  ...createApplicationRoutes(() => db),
+]);
 
 export function getMockDb(): Db {
   return db;
