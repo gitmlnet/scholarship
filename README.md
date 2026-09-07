@@ -136,8 +136,24 @@ table. Components live in `src/components/ui/`; tokens in `src/styles/tokens.css
 
 ## Demo Accounts
 
-Demo authentication (admin + applicant accounts with seeded applications) arrives in Phase 5.
-No credentials exist yet, and none are needed for anything in the current build.
+Demo authentication is simulated (sessionStorage token, 8-hour expiry, salted-hash credentials —
+a teaching pattern, not production security). Sessions die with the browser tab. The admin UI
+arrives in Phase 7; the accounts already work at the API/service layer.
+
+| Account | Email | Password | Role |
+|---|---|---|---|
+| Program Office | `admin@scholarsphere.test` | `demo-admin-2026` | admin |
+| Ayesha Rahman | `ayesha@scholarsphere.test` | `demo-applicant-2026` | applicant (owns `SS26-100001`) |
+| Rafiq Chowdhury | `rafiq@scholarsphere.test` | `demo-applicant-2026` | applicant (owns `SS26-100002`) |
+
+Applicants only ever see their own applications (`/me/applications`); guessing another person's
+application ID via public tracking reveals only status data — never names, schools, or contacts.
+
+**DemoPay payment simulation (deterministic):** roughly 2 seconds after submission the payment
+"verifies" and the application moves to `under_review`. Transaction IDs **ending in `00`** are
+flagged for admin attention instead (the application stays `payment_pending` until an admin
+accepts or rejects the payment). No real provider is contacted — this is documented, testable
+simulation.
 
 ## Environment Configuration
 
