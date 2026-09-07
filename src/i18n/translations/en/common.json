@@ -1,0 +1,30 @@
+{
+  "siteName": "ScholarSphere",
+  "actions": {
+    "apply": "Apply for Scholarship",
+    "exploreProgram": "Explore Program",
+    "viewAll": "View all",
+    "retry": "Try again",
+    "back": "Back",
+    "close": "Close",
+    "learnMore": "Learn more"
+  },
+  "state": {
+    "loading": "Loading…",
+    "error": "Something went wrong while loading this section.",
+    "empty": "Nothing here yet.",
+    "notFound": "We couldn't find what you were looking for."
+  },
+  "noticeCategory": {
+    "registration": "Registration",
+    "exam": "Exam",
+    "result": "Results",
+    "general": "General"
+  },
+  "language": {
+    "label": "Language",
+    "en": "English",
+    "bn": "বাংলা"
+  },
+  "demoNotice": "Fictional learning project — no real scholarships, payments, or personal data."
+}

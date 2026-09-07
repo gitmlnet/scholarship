@@ -1,0 +1,18 @@
+{
+  "meta": {
+    "title": "Excellence Scholarship 2026",
+    "description": "A fictional premium scholarship program for students in Grades 4–10 — apply, track your application, and explore the syllabus."
+  },
+  "hero": {
+    "title": "Your Potential Deserves an Opportunity.",
+    "subtitle": "One application and one rigorous examination open a pathway to recognition, support, and opportunity for students in Grades 4–10."
+  },
+  "stats": {
+    "heading": "The program at a glance"
+  },
+  "notices": {
+    "heading": "Latest Notices",
+    "viewAll": "View all notices",
+    "empty": "No notices published yet."
+  }
+}

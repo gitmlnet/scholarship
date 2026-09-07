@@ -1,0 +1,32 @@
+{
+  "skipToContent": "Skip to main content",
+  "announcement": {
+    "link": "Notices",
+    "dismiss": "Dismiss announcement"
+  },
+  "header": {
+    "home": "Home",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "nav": {
+      "scholarship": "Scholarship",
+      "eligibility": "Eligibility",
+      "syllabus": "Syllabus",
+      "notices": "Notices",
+      "results": "Results",
+      "faq": "FAQ",
+      "track": "Track Application"
+    }
+  },
+  "footer": {
+    "blurb": "A fictional scholarship program exploring how modern education platforms are planned, built, and shipped.",
+    "columns": {
+      "program": "Program",
+      "support": "Support",
+      "legal": "Legal"
+    },
+    "contact": "Contact",
+    "disclaimer": "ScholarSphere is a learning project. All names, dates, and results are fictional.",
+    "copyright": "© {{year}} ScholarSphere (fictional demo)"
+  }
+}
