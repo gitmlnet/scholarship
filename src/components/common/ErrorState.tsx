@@ -1,4 +1,5 @@
 import { useTranslation } from 'react-i18next';
+import { Alert } from '@/components/ui/Alert';
 import { Button } from '@/components/ui/Button';
 
 interface ErrorStateProps {
@@ -10,16 +11,12 @@ interface ErrorStateProps {
 export function ErrorState({ message, onRetry }: ErrorStateProps) {
   const { t } = useTranslation('common');
   return (
-    <div
-      role="alert"
-      className="border-danger-100 bg-danger-50 rounded-xl border px-6 py-8 text-center"
-    >
-      <p className="text-danger-800 font-medium">{message ?? t('state.error')}</p>
+    <Alert variant="danger" title={message ?? t('state.error')}>
       {onRetry && (
-        <Button variant="secondary" size="sm" className="mt-4" onClick={onRetry}>
+        <Button variant="secondary" size="sm" className="mt-3" onClick={onRetry}>
           {t('actions.retry')}
         </Button>
       )}
-    </div>
+    </Alert>
   );
 }

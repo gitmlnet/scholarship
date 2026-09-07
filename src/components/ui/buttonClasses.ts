@@ -1,6 +1,6 @@
 import { cn } from '@/utils/cn';
 
-export type ButtonVariant = 'primary' | 'secondary' | 'ghost' | 'dark';
+export type ButtonVariant = 'primary' | 'secondary' | 'ghost' | 'dark' | 'danger';
 export type ButtonSize = 'sm' | 'md' | 'lg';
 
 const base =
@@ -14,6 +14,8 @@ const variants: Record<ButtonVariant, string> = {
     'border border-navy-200 bg-surface-raised text-navy-900 hover:border-navy-400 hover:bg-navy-50 focus-visible:outline-navy-700',
   ghost: 'text-navy-800 hover:bg-navy-100/70 focus-visible:outline-navy-700',
   dark: 'bg-navy-800 text-white hover:bg-navy-900 active:bg-navy-950 focus-visible:outline-navy-500',
+  danger:
+    'bg-danger-700 text-white hover:bg-danger-800 active:bg-danger-800 focus-visible:outline-danger-700',
 };
 
 const sizes: Record<ButtonSize, string> = {

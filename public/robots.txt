@@ -1,5 +1,6 @@
 User-agent: *
 Allow: /
 Disallow: /scholarship/admin
+Disallow: /scholarship/style-guide
 
 # ScholarSphere — fictional learning project (no real programs or data).

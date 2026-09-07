@@ -113,7 +113,7 @@ export default function HomePage() {
             ) : (
               <Skeleton className="h-4 w-64" />
             )}
-            <h1 className="text-navy-950 mt-4 text-4xl font-bold tracking-tight sm:text-5xl sm:leading-[1.15]">
+            <h1 className="text-display text-navy-950 sm:text-display-lg mt-4">
               {t('hero.title')}
             </h1>
             <p className="text-ink-muted mt-6 max-w-xl text-lg">{t('hero.subtitle')}</p>
