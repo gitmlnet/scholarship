@@ -112,7 +112,8 @@ handling), service behavior through the mock API, translation parity, language s
 end-to-end app smoke test (hero + notices + stats + বাংলা round-trip). The design system is
 covered by a **WCAG AA contrast gate** (`src/styles/contrast.test.ts` — every token pair the UI
 relies on) plus per-primitive behavior tests (forms wiring, modal, tabs keyboard, toasts,
-pagination, …).
+pagination, …), and every public page has colocated tests (data loading, filtering, forms,
+URL-driven state).
 
 The full test matrix (validation, application IDs, duplicate payments, status transitions, data
 isolation, …) lands phase by phase — see ARCHITECTURE.md §14.
