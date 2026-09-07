@@ -10,13 +10,13 @@ const STEPS = [
 
 describe('ProgressSteps', () => {
   it('marks the current step with aria-current="step"', () => {
-    render(<ProgressSteps steps={STEPS} currentId="student" />);
+    render(<ProgressSteps steps={STEPS} currentId="student" label="Application progress" />);
     const current = screen.getByText('Student').closest('li');
     expect(current).toHaveAttribute('aria-current', 'step');
   });
 
   it('renders every step label in order', () => {
-    render(<ProgressSteps steps={STEPS} currentId="guardian" />);
+    render(<ProgressSteps steps={STEPS} currentId="guardian" label="Application progress" />);
     const items = screen.getAllByRole('listitem');
     expect(items).toHaveLength(3);
     expect(screen.getByText('Eligibility')).toBeInTheDocument();
@@ -25,7 +25,7 @@ describe('ProgressSteps', () => {
   });
 
   it('falls back to the first step for unknown ids', () => {
-    render(<ProgressSteps steps={STEPS} currentId="not-a-step" />);
+    render(<ProgressSteps steps={STEPS} currentId="not-a-step" label="Application progress" />);
     expect(screen.getByText('Eligibility').closest('li')).toHaveAttribute('aria-current', 'step');
   });
 });

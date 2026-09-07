@@ -51,7 +51,7 @@ export function DataSection() {
       description="The pieces the product phases are built on: the wizard progress indicator (Phase 4), the tracking timeline (Phase 6), and the admin tables (Phase 7). All records shown are fictional."
     >
       <DemoBlock label="ProgressSteps — registration wizard (interactive)">
-        <ProgressSteps steps={WIZARD_STEPS} currentId={currentStep} />
+        <ProgressSteps steps={WIZARD_STEPS} currentId={currentStep} label="Application progress" />
         <div className="mt-6 flex flex-wrap gap-2">
           {WIZARD_STEPS.map((step) => (
             <button

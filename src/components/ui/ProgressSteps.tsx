@@ -10,18 +10,20 @@ interface ProgressStepsProps {
   steps: ProgressStep[];
   /** The step the user is currently on (earlier steps render complete). */
   currentId: string;
+  /** Accessible name for the step list (e.g. "Application progress"). */
+  label: string;
   className?: string;
 }
 
 /** Horizontal wizard progress indicator (used by registration in Phase 4). */
-export function ProgressSteps({ steps, currentId, className }: ProgressStepsProps) {
+export function ProgressSteps({ steps, currentId, label, className }: ProgressStepsProps) {
   const currentIndex = Math.max(
     0,
     steps.findIndex((step) => step.id === currentId),
   );
 
   return (
-    <ol className={cn('flex w-full', className)}>
+    <ol aria-label={label} className={cn('flex w-full', className)}>
       {steps.map((step, index) => {
         const isCurrent = index === currentIndex;
         const isComplete = index < currentIndex;

@@ -1,0 +1,145 @@
+{
+  "meta": {
+    "title": "Apply for the Scholarship",
+    "description": "The seven-step application wizard — student, guardian, academic, and payment details, with an autosaved draft."
+  },
+  "steps": {
+    "eligibility": "Eligibility",
+    "student": "Student",
+    "guardian": "Guardian",
+    "academic": "Academic",
+    "payment": "Payment",
+    "review": "Review",
+    "confirm": "Confirm"
+  },
+  "progress": {
+    "label": "Application progress"
+  },
+  "draft": {
+    "restored": "Draft restored — saved on {{time}}.",
+    "discard": "Discard draft",
+    "discarded": "Draft discarded."
+  },
+  "actions": {
+    "back": "Back",
+    "next": "Continue",
+    "submit": "Submit application",
+    "submitting": "Submitting…",
+    "edit": "Edit",
+    "print": "Print / save acknowledgment",
+    "track": "Track application",
+    "startNew": "Start a new application"
+  },
+  "eligibility": {
+    "heading": "Confirm your eligibility",
+    "intro": "Four quick confirmations before we collect any details.",
+    "enrolled": {
+      "label": "The student is enrolled in the grade applied for, in the 2026 academic year",
+      "description": "You will select the grade in Step 4."
+    },
+    "recognized": {
+      "label": "The institution is recognized by the relevant education board or authority",
+      "description": "Government, private, and madrasa boards all count."
+    },
+    "link": "Read the full eligibility rules",
+    "singleApplication": {
+      "label": "This is the only application for this student in the 2026 cycle",
+      "description": "Duplicate submissions are rejected by the system."
+    },
+    "accurateInfo": {
+      "label": "All information I provide will be accurate and complete",
+      "description": "Inaccurate applications can be cancelled during review."
+    }
+  },
+  "student": {
+    "heading": "Student information",
+    "fullName": "Full name",
+    "fullNameHint": "Exactly as printed on the birth certificate.",
+    "dateOfBirth": "Date of birth",
+    "gender": "Gender",
+    "genderOptions": {
+      "male": "Male",
+      "female": "Female",
+      "other": "Other",
+      "prefer_not_to_say": "Prefer not to say"
+    },
+    "email": "Email address",
+    "phone": "Mobile number",
+    "phoneHint": "11 digits, starting with 01."
+  },
+  "guardian": {
+    "heading": "Guardian information",
+    "intro": "We contact the guardian about exam-day arrangements and results.",
+    "fullName": "Guardian's full name",
+    "relation": "Relation to the student",
+    "relationOptions": {
+      "father": "Father",
+      "mother": "Mother",
+      "legal_guardian": "Legal guardian",
+      "other": "Other"
+    },
+    "phone": "Guardian's mobile number",
+    "email": "Guardian's email (optional)",
+    "occupation": "Occupation (optional)"
+  },
+  "academic": {
+    "heading": "Academic information",
+    "grade": "Grade applying for",
+    "gradePlaceholder": "Select a grade…",
+    "school": "School name",
+    "schoolAddress": "School address (optional)",
+    "schoolAddressHint": "Area and city are enough."
+  },
+  "payment": {
+    "heading": "Payment reference",
+    "intro": "Send the application fee through DemoPay (fictional mobile financial service), then enter the transaction ID below. Verification is simulated — no real money moves anywhere.",
+    "amountLabel": "Application fee",
+    "merchantLabel": "Merchant account",
+    "transactionId": "DemoPay transaction ID",
+    "transactionIdHint": "8–20 letters or digits, e.g. DEMO8F3K2Q. For testing: IDs ending in 00 simulate a flagged payment.",
+    "selectGradeFirst": "Select a grade in Step 4 to see the fee."
+  },
+  "review": {
+    "heading": "Review your application",
+    "intro": "Check every section carefully — you can still go back and edit.",
+    "eligibility": "Confirmations",
+    "student": "Student",
+    "guardian": "Guardian",
+    "academic": "Academic",
+    "payment": "Payment",
+    "confirmed": "Confirmed",
+    "gradeLabel": "Grade",
+    "feeLabel": "Fee",
+    "submitNote": "By submitting you confirm the information above is accurate. You will receive an application ID to track your application."
+  },
+  "success": {
+    "printHeading": "Application acknowledgment",
+    "heading": "Application submitted",
+    "idLabel": "Application ID",
+    "saveIdNote": "Save this ID — you need it to track your application and download your admit card.",
+    "summary": {
+      "student": "Student",
+      "grade": "Grade",
+      "submitted": "Submitted"
+    },
+    "next": {
+      "heading": "What happens next",
+      "payment": "Payment verification (simulated) — usually within minutes.",
+      "review": "The program office reviews the application.",
+      "results": "Results publish on 31 January 2027 — track your application anytime."
+    }
+  },
+  "validation": {
+    "required": "This field is required.",
+    "nameLength": "Must be 2–80 characters.",
+    "emailInvalid": "Enter a valid email address.",
+    "phoneInvalid": "Enter a valid 11-digit mobile number starting with 01.",
+    "dateInvalid": "Enter a valid date.",
+    "ageOutOfRange": "The student must be between 7 and 20 years old.",
+    "schoolNameLength": "Must be 2–120 characters.",
+    "transactionIdInvalid": "Use 8–20 letters or digits (no spaces).",
+    "mustAccept": "You must confirm this to continue.",
+    "duplicateTransaction": "This transaction ID was already used in this cycle.",
+    "submitFailed": "Submitting failed — please try again."
+  }
+}

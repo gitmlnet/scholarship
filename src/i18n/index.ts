@@ -5,10 +5,12 @@ import commonBn from './translations/bn/common.json';
 import homeBn from './translations/bn/home.json';
 import layoutBn from './translations/bn/layout.json';
 import pagesBn from './translations/bn/pages.json';
+import registerBn from './translations/bn/register.json';
 import commonEn from './translations/en/common.json';
 import homeEn from './translations/en/home.json';
 import layoutEn from './translations/en/layout.json';
 import pagesEn from './translations/en/pages.json';
+import registerEn from './translations/en/register.json';
 
 export const SUPPORTED_LANGUAGES = ['en', 'bn'] as const;
 export type Language = (typeof SUPPORTED_LANGUAGES)[number];
@@ -16,8 +18,20 @@ export type Language = (typeof SUPPORTED_LANGUAGES)[number];
 const LANG_STORAGE_KEY = 'scholarsphere.lang';
 
 export const resources = {
-  en: { common: commonEn, layout: layoutEn, home: homeEn, pages: pagesEn },
-  bn: { common: commonBn, layout: layoutBn, home: homeBn, pages: pagesBn },
+  en: {
+    common: commonEn,
+    layout: layoutEn,
+    home: homeEn,
+    pages: pagesEn,
+    register: registerEn,
+  },
+  bn: {
+    common: commonBn,
+    layout: layoutBn,
+    home: homeBn,
+    pages: pagesBn,
+    register: registerBn,
+  },
 } as const;
 
 function detectInitialLanguage(): Language {

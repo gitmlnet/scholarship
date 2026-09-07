@@ -21,3 +21,17 @@ export function formatDate(isoDate: string, lang: Language): string {
 export function formatNumber(value: number, lang: Language): string {
   return new Intl.NumberFormat(lang === 'bn' ? 'bn-BD' : 'en').format(value);
 }
+
+/** Format an ISO date-time for display in the active language. */
+export function formatDateTime(isoDateTime: string, lang: Language): string {
+  const date = new Date(isoDateTime);
+  if (Number.isNaN(date.getTime())) return isoDateTime;
+  const locale = lang === 'bn' ? 'bn-BD' : 'en-GB';
+  return new Intl.DateTimeFormat(locale, {
+    day: 'numeric',
+    month: 'short',
+    year: 'numeric',
+    hour: 'numeric',
+    minute: '2-digit',
+  }).format(date);
+}
