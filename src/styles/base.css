@@ -12,9 +12,31 @@
     -webkit-font-smoothing: antialiased;
   }
 
-  /* Bengali needs a little more breathing room for ascenders/matras. */
+  /* Serif display face for headings — the academic signature. */
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+
+  /* Bengali: more line-height for ascenders/matras, no negative tracking,
+     and safe wrapping for long compound words in dense layouts. */
   html[lang='bn'] body {
     line-height: 1.75;
+  }
+  html[lang='bn'] h1,
+  html[lang='bn'] h2,
+  html[lang='bn'] h3,
+  html[lang='bn'] h4 {
+    letter-spacing: 0;
+  }
+  html[lang='bn'] h1,
+  html[lang='bn'] h2,
+  html[lang='bn'] h3 {
+    overflow-wrap: break-word;
   }
 
   /* Consistent, visible keyboard focus everywhere (WCAG 2.4.7).
@@ -26,6 +48,11 @@
 
   ::selection {
     background-color: var(--color-gold-200);
+  }
+
+  /* Native dialog backdrop (Modal component). */
+  dialog::backdrop {
+    background-color: rgb(7 18 35 / 0.6);
   }
 
   /* Respect reduced-motion preferences (WCAG 2.3.3). */

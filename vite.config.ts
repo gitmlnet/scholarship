@@ -31,6 +31,11 @@ export default defineConfig({
     globals: true,
     setupFiles: ['./src/test/setup.ts'],
     include: ['src/**/*.{test,spec}.{ts,tsx}'],
+    // Process CSS so `?raw` imports behave exactly like in the app
+    // (the contrast gate and the style guide read tokens.css this way).
+    // Only main.tsx imports CSS outside of `?raw`, and it is never under
+    // test, so this costs nothing.
+    css: true,
     env: {
       // Deterministic, fast tests: no simulated network latency.
       VITE_MOCK_LATENCY: 'false',
