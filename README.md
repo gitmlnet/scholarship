@@ -109,10 +109,19 @@ Unit tests are colocated with the code they test (`*.test.ts(x)`).
 `npm run test` covers the foundation: mock-client transport (routing, params, latency, abort,
 error shaping), real-client contract (fetch mocking), localStorage persistence (corruption
 handling), service behavior through the mock API, translation parity, language switching, and an
-end-to-end app smoke test (hero + notices + stats + বাংলা round-trip).
+end-to-end app smoke test (hero + notices + stats + বাংলা round-trip). The design system is
+covered by a **WCAG AA contrast gate** (`src/styles/contrast.test.ts` — every token pair the UI
+relies on) plus per-primitive behavior tests (forms wiring, modal, tabs keyboard, toasts,
+pagination, …).
 
 The full test matrix (validation, application IDs, duplicate payments, status transitions, data
 isolation, …) lands phase by phase — see ARCHITECTURE.md §14.
+
+## Design System
+
+An internal reference lives at **`/style-guide`** (dev tool: English-only, `noindex`, excluded
+from robots) — it renders every primitive, the color scales, typography, and the live AA contrast
+table. Components live in `src/components/ui/`; tokens in `src/styles/tokens.css`.
 
 ## Deployment (GitHub Pages)
 

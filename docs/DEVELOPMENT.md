@@ -55,6 +55,29 @@ When you need API knowledge in the UI (e.g., "is this a 404?"), add a helper to
   story.
 - **Tests colocated.** `Foo.tsx` ↔ `Foo.test.tsx`. Behavior that spans layers gets tested at the
   service or app level.
+- **Design-system primitives live in `src/components/ui/`.** They are forward-ref, use design
+  tokens only, and own their accessibility wiring. Compose them; don't fork their styles.
+  - `Field` generates ids and wires `label`/`hint`/`error` to a single control via context
+    (`aria-describedby`, `aria-invalid`, `aria-required`). `Checkbox`/`Radio` bring their own
+    labels — never wrap them in `Field`.
+  - Primitives with user-facing fixed strings (`Modal`, `Pagination`, `ToastProvider`) take them
+    as props with English defaults; call sites pass translated strings.
+- **Contrast is CI-enforced.** `src/styles/contrast.test.ts` verifies every pair in
+  `AA_CONTRAST_PAIRS` (`src/utils/designTokens.ts`) against the real `tokens.css`. Change a color
+  token → the gate re-runs. The internal style guide renders the same list with live ratios.
+
+## Internal tooling (English-only exception)
+
+The `/style-guide` route (and only it) is a development reference, not public content: its labels
+are English-only, it is excluded from `robots.txt`, and it sets `noindex` via
+`useDocumentMeta(..., { noindex: true })`. Everything user-facing remains fully bilingual.
+
+## Testing notes
+
+- Vitest runs with `css: true` so `import ... from '*.css?raw'` returns the real stylesheet
+  source (Vite-native behavior; used by the contrast gate and the style guide).
+- Fake timers: assert synchronously after `fireEvent` (don't mix `findBy*` polling with fake
+  timers), and restore real timers in the same test — a timeout abort skips `finally`.
 
 ## Adding Things — Checklists
 
