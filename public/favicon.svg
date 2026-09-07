@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="ScholarSphere mark">
+  <rect width="64" height="64" rx="14" fill="#0b1b31" />
+  <path d="M32 10l4.9 13.1L50 28l-13.1 4.9L32 46l-4.9-13.1L14 28l13.1-4.9z" fill="#d6ac3f" />
+  <path d="M16 50c5-3.4 10.5-3.4 16 0 5.5-3.4 11-3.4 16 0" fill="none" stroke="#f5eccb" stroke-width="3" stroke-linecap="round" />
+</svg>

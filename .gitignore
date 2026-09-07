@@ -1,0 +1,20 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+coverage/
+
+# Environment — never commit local env files
+.env
+.env.*
+!.env.example
+
+# Caches
+*.tsbuildinfo
+
+# Editor / OS
+.DS_Store
+*.local
+.idea/
+.vscode/
